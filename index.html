@@ -7,20 +7,16 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Ndlelene" />
-    <meta name="description" content="🛵 Serviço de entregas rápidas e sem surpresas. Preço fixo por zona. Atendimento direto pelo WhatsApp. Entregas em Maputo e arredores." />
-
+    
     <title>Ndlelene Entregas</title>
-
-    <!-- ===== ÍCONE DIRETO NO CÓDIGO ===== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23F57C00'/><text x='50' y='68' font-family='Arial' font-size='50' font-weight='bold' text-anchor='middle' fill='white'>N</text></svg>" />
-
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23F57C00'/><text x='50' y='68' font-family='Arial' font-size='50' font-weight='bold' text-anchor='middle' fill='white'>N</text></svg>" />
-
-    <!-- ===== MANIFEST COMPLETO ===== -->
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIk5kbGVsZW5lIEVudHJlZ2FzIiwKICAic2hvcnRfbmFtZSI6ICJOREwiLAogICJkZXNjcmlwdGlvbiI6ICLwn5C1IFNlcnZpw6dvIGRlIGVudHJlZ2FzIHLDoXBpZGFzIGUgc2VtIHN1cnByZXNhcy4gUHJlw6dvIGZpeG8gcG9yIHpvbmEuIEF0ZW5kaW1lbnRvIGRpcmV0byBwZWxvIFdoYXRzQXBwLiBFbnRyZWdhcyBlbSBNYXB1dG8gZSBhcnJlZG9yZXMuIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNGRkY4RjAiLAogICJ0aGVtZV9jb2xvciI6ICIjRjU3QzAwIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLDxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMTAwIDEwMCc+PGNpcmNsZSBjeD0nNTAnIGN5PSc1MCcgcj0nNDUnIGZpbGw9JyUyM0Y1N0MwMCcvPjx0ZXh0IHg9JzUwJyB5PSc2OCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzUwJyBmb250LXdlaWdodD0nYm9sZCcgdGV4dC1hbmNob3I9J21pZGRsZScgZmlsbD0nd2hpdGUnPk48L3RleHQ+PC9zdmc+IiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQ==" />
-
+    
+    <link rel="manifest" href="manifest.json" />
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛵</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛵</text></svg>" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+    
     <style>
         /* ===== RESET E BASE ===== */
         * {
@@ -717,7 +713,7 @@
         .install-banner {
             background: linear-gradient(135deg, #F57C00, #E65100);
             color: white;
-            padding: 10px 14px;
+            padding: 12px 16px;
             border-radius: 14px;
             margin-bottom: 14px;
             display: none;
@@ -725,22 +721,31 @@
             justify-content: space-between;
             gap: 8px;
             box-shadow: 0 4px 12px rgba(245,124,0,0.3);
+            animation: fadeIn 0.5s ease;
         }
         .install-banner.show { display: flex; }
         .install-banner p {
             font-size: 13px;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .install-banner p i { margin-right: 6px; }
+        .install-banner p i { font-size: 18px; }
         .install-banner .install-btn {
             background: white;
             color: #F57C00;
             border: none;
-            padding: 6px 14px;
-            border-radius: 8px;
+            padding: 8px 18px;
+            border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
             font-size: 13px;
+            transition: 0.2s;
+        }
+        .install-banner .install-btn:hover {
+            transform: scale(1.05);
+            background: #FFF3E0;
         }
         .install-banner .close-btn {
             background: rgba(255,255,255,0.2);
@@ -750,6 +755,36 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            transition: 0.2s;
+        }
+        .install-banner .close-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ===== BOTÃO INSTALAR NO FOOTER ===== */
+        .install-footer-btn {
+            display: none;
+            margin-top: 12px;
+            padding: 10px;
+            background: #F57C00;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.2s;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .install-footer-btn:hover {
+            background: #E65100;
+            transform: scale(1.01);
+        }
+        .install-footer-btn.show {
+            display: flex;
         }
 
         /* ===== RESPONSIVO ===== */
@@ -761,6 +796,7 @@
             .notification-container { right: 10px; left: 10px; max-width: none; }
             .phone-verify .input-group { flex-direction: column; }
             .login-container { margin: 20px 10px; padding: 24px 16px; }
+            .install-banner { flex-wrap: wrap; justify-content: center; }
         }
 
         @media (min-width: 768px) {
@@ -784,9 +820,9 @@
 
         <!-- ===== BANNER DE INSTALAÇÃO ===== -->
         <div class="install-banner" id="installBanner">
-            <p><i class="fas fa-mobile-alt"></i> Instale o app Ndlelene</p>
-            <div>
-                <button class="install-btn" id="installBtn">Instalar</button>
+            <p><i class="fas fa-download"></i> Instale o app Ndlelene</p>
+            <div style="display:flex; gap:8px; align-items:center;">
+                <button class="install-btn" id="installBtn"><i class="fas fa-mobile-alt"></i> Instalar</button>
                 <button class="close-btn" onclick="fecharBanner()">✕</button>
             </div>
         </div>
@@ -820,11 +856,16 @@
                 <button class="btn-admin" onclick="mostrarHistorico()">
                     <i class="fas fa-history"></i> Meu Histórico
                 </button>
+                <button class="btn-admin" id="installFooterBtn" onclick="instalarApp()" style="display:none; color:#2E7D32;">
+                    <i class="fas fa-download"></i> Instalar App
+                </button>
             </div>
 
             <div class="footer">
                 <strong>Ndlelene</strong> · Entregas rápidas e sem surpresas<br />
-                <span style="font-size:11px;">📍 Zonas: Baixa · Costa do Sol · e mais</span>
+                <span style="font-size:11px;">📍 Atendemos toda a região metropolitana</span>
+                <br />
+                <span style="font-size:10px; color:#ccc;" id="appVersion">v2.0 · PWA</span>
             </div>
         </div>
 
@@ -852,8 +893,21 @@
                 <label><i class="fas fa-map-pin"></i> Ponto de recolha</label>
                 <select class="form-control" id="recolha" onchange="calcularPreco()">
                     <option value="">Selecione a recolha</option>
-                    <option value="Baixa">Baixa</option>
+                    <option value="Polana">Polana</option>
+                    <option value="Xipamanine">Xipamanine</option>
+                    <option value="Coop">Coop</option>
+                    <option value="Xiquelene">Xiquelene</option>
+                    <option value="Hulene/Laulane">Hulene/Laulane</option>
+                    <option value="Benfica">Benfica</option>
+                    <option value="Zimpeto">Zimpeto</option>
                     <option value="Costa do Sol">Costa do Sol</option>
+                    <option value="João Mateus">João Mateus</option>
+                    <option value="Liberdade">Liberdade</option>
+                    <option value="Patrice Lumumba">Patrice Lumumba</option>
+                    <option value="Malhapsene">Malhapsene</option>
+                    <option value="Zona Verde">Zona Verde</option>
+                    <option value="T-3">T-3</option>
+                    <option value="Matola Rio">Matola Rio</option>
                     <option value="Outro">Outro (sob consulta)</option>
                 </select>
             </div>
@@ -867,7 +921,6 @@
                     <option value="Coop">Coop</option>
                     <option value="Xiquelene">Xiquelene</option>
                     <option value="Hulene/Laulane">Hulene/Laulane</option>
-                    <option value="Sommerschield">Sommerschield</option>
                     <option value="Benfica">Benfica</option>
                     <option value="Zimpeto">Zimpeto</option>
                     <option value="Costa do Sol">Costa do Sol</option>
@@ -876,6 +929,8 @@
                     <option value="Patrice Lumumba">Patrice Lumumba</option>
                     <option value="Malhapsene">Malhapsene</option>
                     <option value="Zona Verde">Zona Verde</option>
+                    <option value="T-3">T-3</option>
+                    <option value="Matola Rio">Matola Rio</option>
                     <option value="Outro">Outro (sob consulta)</option>
                 </select>
             </div>
@@ -973,7 +1028,7 @@
                 <div class="login-logo">🔐</div>
                 <h2>Painel Administrativo</h2>
                 <p>Digite a senha para acessar o painel de gestão</p>
-
+                
                 <div class="input-group">
                     <input type="password" id="senhaAdmin" placeholder="••••••" maxlength="6" />
                     <button class="login-btn" onclick="verificarLoginAdmin()">
@@ -1056,8 +1111,21 @@
                         <label>Origem</label>
                         <select id="priceOrigem">
                             <option value="">Selecione</option>
-                            <option value="Baixa">Baixa</option>
+                            <option value="Polana">Polana</option>
+                            <option value="Xipamanine">Xipamanine</option>
+                            <option value="Coop">Coop</option>
+                            <option value="Xiquelene">Xiquelene</option>
+                            <option value="Hulene/Laulane">Hulene/Laulane</option>
+                            <option value="Benfica">Benfica</option>
+                            <option value="Zimpeto">Zimpeto</option>
                             <option value="Costa do Sol">Costa do Sol</option>
+                            <option value="João Mateus">João Mateus</option>
+                            <option value="Liberdade">Liberdade</option>
+                            <option value="Patrice Lumumba">Patrice Lumumba</option>
+                            <option value="Malhapsene">Malhapsene</option>
+                            <option value="Zona Verde">Zona Verde</option>
+                            <option value="T-3">T-3</option>
+                            <option value="Matola Rio">Matola Rio</option>
                         </select>
                     </div>
                     <div class="field">
@@ -1069,7 +1137,6 @@
                             <option value="Coop">Coop</option>
                             <option value="Xiquelene">Xiquelene</option>
                             <option value="Hulene/Laulane">Hulene/Laulane</option>
-                            <option value="Sommerschield">Sommerschield</option>
                             <option value="Benfica">Benfica</option>
                             <option value="Zimpeto">Zimpeto</option>
                             <option value="Costa do Sol">Costa do Sol</option>
@@ -1078,6 +1145,8 @@
                             <option value="Patrice Lumumba">Patrice Lumumba</option>
                             <option value="Malhapsene">Malhapsene</option>
                             <option value="Zona Verde">Zona Verde</option>
+                            <option value="T-3">T-3</option>
+                            <option value="Matola Rio">Matola Rio</option>
                         </select>
                     </div>
                     <div class="field">
@@ -1141,24 +1210,136 @@
 
         const WHATSAPP_NUMBER = '258842114673';
         const SENHA_ADMIN = '842650';
+        const PRECO_MINIMO = 100; // 🆕 PREÇO MÍNIMO DE 100 MT
+
+        // ============================================================
+        //  TABELA DE PREÇOS COMPLETA (TODOS COM MÍNIMO DE 100 MT)
+        // ============================================================
+
+        function aplicarPrecoMinimo(valor) {
+            return Math.max(valor, PRECO_MINIMO);
+        }
 
         const PRECOS_PADRAO = {
-            "Baixa→Polana": 100,
-            "Baixa→Xipamanine": 100,
-            "Baixa→Coop": 150,
-            "Baixa→Xiquelene": 150,
-            "Baixa→Hulene/Laulane": 200,
-            "Baixa→Sommerschield": 200,
-            "Baixa→Benfica": 250,
-            "Baixa→Zimpeto": 300,
-            "Baixa→Costa do Sol": 300,
-            "Baixa→João Mateus": 350,
-            "Costa do Sol→João Mateus": 150,
-            "Costa do Sol→Liberdade": 200,
-            "Costa do Sol→Patrice Lumumba": 200,
-            "Costa do Sol→Malhapsene": 250,
-            "Costa do Sol→Zona Verde": 200,
-            "Costa do Sol→Benfica": 250
+            // ROTAS PRINCIPAIS
+            "Polana→Xipamanine": aplicarPrecoMinimo(80),
+            "Polana→Coop": aplicarPrecoMinimo(100),
+            "Polana→Xiquelene": aplicarPrecoMinimo(120),
+            "Polana→Hulene/Laulane": aplicarPrecoMinimo(150),
+            "Polana→Benfica": aplicarPrecoMinimo(200),
+            "Polana→Zimpeto": aplicarPrecoMinimo(250),
+            "Polana→Costa do Sol": aplicarPrecoMinimo(200),
+            "Polana→João Mateus": aplicarPrecoMinimo(250),
+            "Polana→Liberdade": aplicarPrecoMinimo(150),
+            "Polana→Patrice Lumumba": aplicarPrecoMinimo(200),
+            "Polana→Malhapsene": aplicarPrecoMinimo(200),
+            "Polana→Zona Verde": aplicarPrecoMinimo(150),
+            "Polana→T-3": aplicarPrecoMinimo(200),
+            "Polana→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "Xipamanine→Coop": aplicarPrecoMinimo(80),
+            "Xipamanine→Xiquelene": aplicarPrecoMinimo(100),
+            "Xipamanine→Hulene/Laulane": aplicarPrecoMinimo(130),
+            "Xipamanine→Benfica": aplicarPrecoMinimo(250),
+            "Xipamanine→Zimpeto": aplicarPrecoMinimo(300),
+            "Xipamanine→Costa do Sol": aplicarPrecoMinimo(250),
+            "Xipamanine→João Mateus": aplicarPrecoMinimo(300),
+            "Xipamanine→Liberdade": aplicarPrecoMinimo(200),
+            "Xipamanine→Patrice Lumumba": aplicarPrecoMinimo(200),
+            "Xipamanine→Malhapsene": aplicarPrecoMinimo(200),
+            "Xipamanine→Zona Verde": aplicarPrecoMinimo(180),
+            "Xipamanine→T-3": aplicarPrecoMinimo(250),
+            "Xipamanine→Matola Rio": aplicarPrecoMinimo(350),
+            
+            "Coop→Xiquelene": aplicarPrecoMinimo(80),
+            "Coop→Hulene/Laulane": aplicarPrecoMinimo(100),
+            "Coop→Benfica": aplicarPrecoMinimo(200),
+            "Coop→Zimpeto": aplicarPrecoMinimo(250),
+            "Coop→Costa do Sol": aplicarPrecoMinimo(200),
+            "Coop→João Mateus": aplicarPrecoMinimo(250),
+            "Coop→Liberdade": aplicarPrecoMinimo(150),
+            "Coop→Patrice Lumumba": aplicarPrecoMinimo(150),
+            "Coop→Malhapsene": aplicarPrecoMinimo(150),
+            "Coop→Zona Verde": aplicarPrecoMinimo(120),
+            "Coop→T-3": aplicarPrecoMinimo(200),
+            "Coop→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "Xiquelene→Hulene/Laulane": aplicarPrecoMinimo(80),
+            "Xiquelene→Benfica": aplicarPrecoMinimo(200),
+            "Xiquelene→Zimpeto": aplicarPrecoMinimo(250),
+            "Xiquelene→Costa do Sol": aplicarPrecoMinimo(200),
+            "Xiquelene→João Mateus": aplicarPrecoMinimo(250),
+            "Xiquelene→Liberdade": aplicarPrecoMinimo(150),
+            "Xiquelene→Patrice Lumumba": aplicarPrecoMinimo(150),
+            "Xiquelene→Malhapsene": aplicarPrecoMinimo(150),
+            "Xiquelene→Zona Verde": aplicarPrecoMinimo(120),
+            "Xiquelene→T-3": aplicarPrecoMinimo(200),
+            "Xiquelene→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "Hulene/Laulane→Benfica": aplicarPrecoMinimo(150),
+            "Hulene/Laulane→Zimpeto": aplicarPrecoMinimo(200),
+            "Hulene/Laulane→Costa do Sol": aplicarPrecoMinimo(250),
+            "Hulene/Laulane→João Mateus": aplicarPrecoMinimo(200),
+            "Hulene/Laulane→Liberdade": aplicarPrecoMinimo(150),
+            "Hulene/Laulane→Patrice Lumumba": aplicarPrecoMinimo(150),
+            "Hulene/Laulane→Malhapsene": aplicarPrecoMinimo(150),
+            "Hulene/Laulane→Zona Verde": aplicarPrecoMinimo(120),
+            "Hulene/Laulane→T-3": aplicarPrecoMinimo(180),
+            "Hulene/Laulane→Matola Rio": aplicarPrecoMinimo(280),
+            
+            "Benfica→Zimpeto": aplicarPrecoMinimo(180),
+            "Benfica→Costa do Sol": aplicarPrecoMinimo(250),
+            "Benfica→João Mateus": aplicarPrecoMinimo(200),
+            "Benfica→Liberdade": aplicarPrecoMinimo(200),
+            "Benfica→Patrice Lumumba": aplicarPrecoMinimo(200),
+            "Benfica→Malhapsene": aplicarPrecoMinimo(200),
+            "Benfica→Zona Verde": aplicarPrecoMinimo(180),
+            "Benfica→T-3": aplicarPrecoMinimo(250),
+            "Benfica→Matola Rio": aplicarPrecoMinimo(350),
+            
+            "Zimpeto→Costa do Sol": aplicarPrecoMinimo(200),
+            "Zimpeto→João Mateus": aplicarPrecoMinimo(180),
+            "Zimpeto→Liberdade": aplicarPrecoMinimo(250),
+            "Zimpeto→Patrice Lumumba": aplicarPrecoMinimo(250),
+            "Zimpeto→Malhapsene": aplicarPrecoMinimo(250),
+            "Zimpeto→Zona Verde": aplicarPrecoMinimo(200),
+            "Zimpeto→T-3": aplicarPrecoMinimo(250),
+            "Zimpeto→Matola Rio": aplicarPrecoMinimo(350),
+            
+            "Costa do Sol→João Mateus": aplicarPrecoMinimo(500),
+            "Costa do Sol→Liberdade": aplicarPrecoMinimo(500),
+            "Costa do Sol→Patrice Lumumba": aplicarPrecoMinimo(450),
+            "Costa do Sol→Malhapsene": aplicarPrecoMinimo(600),
+            "Costa do Sol→Zona Verde": aplicarPrecoMinimo(400),
+            "Costa do Sol→T-3": aplicarPrecoMinimo(500),
+            "Costa do Sol→Matola Rio": aplicarPrecoMinimo(600),
+            
+            "João Mateus→Liberdade": aplicarPrecoMinimo(300),
+            "João Mateus→Patrice Lumumba": aplicarPrecoMinimo(300),
+            "João Mateus→Malhapsene": aplicarPrecoMinimo(300),
+            "João Mateus→Zona Verde": aplicarPrecoMinimo(250),
+            "João Mateus→T-3": aplicarPrecoMinimo(350),
+            "João Mateus→Matola Rio": aplicarPrecoMinimo(400),
+            
+            "Liberdade→Patrice Lumumba": aplicarPrecoMinimo(80),
+            "Liberdade→Malhapsene": aplicarPrecoMinimo(100),
+            "Liberdade→Zona Verde": aplicarPrecoMinimo(80),
+            "Liberdade→T-3": aplicarPrecoMinimo(200),
+            "Liberdade→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "Patrice Lumumba→Malhapsene": aplicarPrecoMinimo(80),
+            "Patrice Lumumba→Zona Verde": aplicarPrecoMinimo(80),
+            "Patrice Lumumba→T-3": aplicarPrecoMinimo(200),
+            "Patrice Lumumba→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "Malhapsene→Zona Verde": aplicarPrecoMinimo(100),
+            "Malhapsene→T-3": aplicarPrecoMinimo(200),
+            "Malhapsene→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "Zona Verde→T-3": aplicarPrecoMinimo(200),
+            "Zona Verde→Matola Rio": aplicarPrecoMinimo(300),
+            
+            "T-3→Matola Rio": aplicarPrecoMinimo(200)
         };
 
         // ============================================================
@@ -1313,7 +1494,7 @@
         });
 
         // ============================================================
-        //  CÁLCULO DE PREÇO
+        //  CÁLCULO DE PREÇO (COM MÍNIMO DE 100 MT)
         // ============================================================
 
         let precoAtual = null;
@@ -1334,7 +1515,9 @@
             const chaveInversa = `${entrega}→${recolha}`;
             let preco = precos[chave] || precos[chaveInversa];
 
+            // 🔥 GARANTIR PREÇO MÍNIMO DE 100 MT
             if (preco) {
+                preco = Math.max(preco, PRECO_MINIMO);
                 precoAtual = preco;
                 display.innerHTML = `${preco} <small>MT</small>`;
             } else {
@@ -1359,13 +1542,19 @@
                 return;
             }
 
+            // 🔥 GARANTIR QUE O PREÇO NÃO SEJA MENOR QUE 100 MT
+            let precoFinal = precoAtual;
+            if (precoFinal && precoFinal < PRECO_MINIMO) {
+                precoFinal = PRECO_MINIMO;
+            }
+
             const pedido = {
                 id: gerarId(),
                 nome,
                 telefone,
                 recolha,
                 entrega,
-                preco: precoAtual,
+                preco: precoFinal,
                 observacoes: obs,
                 status: 'pendente',
                 data: new Date().toLocaleString(),
@@ -1378,17 +1567,17 @@
 
             showNotification('✅ Pedido Enviado!', 'Aguardando confirmação do entregador.', 'success');
 
-            const precoTexto = precoAtual ? `${precoAtual} MT` : 'Sob consulta';
+            const precoTexto = precoFinal ? `${precoFinal} MT` : 'Sob consulta';
             const mensagem = `
         🛵 *NOVO PEDIDO - Ndlelene Entregas*
-
+        
         👤 Nome: ${nome}
         📱 Telefone: ${telefone}
         📍 Recolha: ${recolha}
         🏁 Entrega: ${entrega}
         💰 Preço: ${precoTexto}
         📝 Obs: ${obs || 'Sem observações'}
-
+        
         ⏱ Pedido gerado automaticamente.
             `.trim();
 
@@ -1413,7 +1602,7 @@
 
         function verificarHistorico() {
             const telefone = document.getElementById('historicoTelefone').value.trim();
-
+            
             if (!telefone) {
                 showNotification('Atenção', 'Digite seu número de telefone!', 'warning');
                 return;
@@ -1435,7 +1624,7 @@
             }
 
             const historico = pedidosCliente.filter(p => p.status === 'entregue' || p.status === 'avaliado');
-
+            
             if (historico.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
@@ -1478,10 +1667,10 @@
                         </div>
                         <div style="text-align:right;">
                             <div class="rating-display">${estrelas}</div>
-                            ${!p.avaliacao && p.status === 'entregue' ?
+                            ${!p.avaliacao && p.status === 'entregue' ? 
                                 `<button class="btn-warning" onclick="abrirAvaliacao('${p.id}')" style="margin-top:4px; font-size:11px; padding:4px 10px;">
                                     <i class="fas fa-star"></i> Avaliar
-                                </button>` :
+                                </button>` : 
                                 p.comentario ? `<div style="font-size:11px; color:#90A4AE; max-width:150px;">"${p.comentario}"</div>` : ''
                             }
                         </div>
@@ -1527,7 +1716,7 @@
             pedidoAvaliadoId = pedidoId;
             document.querySelectorAll('[id^="tela"]').forEach(el => el.classList.add('hidden'));
             document.getElementById('telaAvaliacao').classList.remove('hidden');
-
+            
             document.querySelectorAll('.rating-stars .star').forEach(s => s.classList.remove('active'));
             avaliacaoAtual = 0;
             document.getElementById('ratingText').textContent = 'Toque nas estrelas para avaliar';
@@ -1616,9 +1805,9 @@
             const total = pedidos.length;
             const pendentes = pedidos.filter(p => p.status === 'pendente' || p.status === 'em-andamento').length;
             const entregues = pedidos.filter(p => p.status === 'entregue' || p.status === 'avaliado').length;
-
+            
             const avaliacoes = getAvaliacoes();
-            const media = avaliacoes.length > 0 ?
+            const media = avaliacoes.length > 0 ? 
                 (avaliacoes.reduce((s, a) => s + a.nota, 0) / avaliacoes.length).toFixed(1) : '0.0';
 
             document.getElementById('totalPedidos').textContent = total;
@@ -1686,20 +1875,28 @@
             }
             tbody.innerHTML = entries.map(([rota, preco]) => {
                 const [origem, destino] = rota.split('→');
-                return `<tr><td>${origem}</td><td>${destino}</td><td><strong>${preco} MT</strong></td></tr>`;
+                // Garantir que o preço mostrado seja no mínimo 100 MT
+                const precoExibido = Math.max(preco, PRECO_MINIMO);
+                return `<tr><td>${origem}</td><td>${destino}</td><td><strong>${precoExibido} MT</strong></td></tr>`;
             }).join('');
         }
 
         function salvarPreco() {
             const origem = document.getElementById('priceOrigem').value;
             const destino = document.getElementById('priceDestino').value;
-            const preco = document.getElementById('priceValor').value;
+            let preco = document.getElementById('priceValor').value;
             if (!origem || !destino || !preco) {
                 showNotification('Atenção', 'Preencha todos os campos!', 'warning');
                 return;
             }
+            preco = parseFloat(preco);
+            // Garantir preço mínimo
+            if (preco < PRECO_MINIMO) {
+                preco = PRECO_MINIMO;
+                showNotification('ℹ️ Ajuste automático', `Preço mínimo é ${PRECO_MINIMO} MT. Valor ajustado.`, 'info');
+            }
             const precos = getPrecos();
-            precos[`${origem}→${destino}`] = parseFloat(preco);
+            precos[`${origem}→${destino}`] = preco;
             setPrecos(precos);
             document.getElementById('priceValor').value = '';
             carregarPrecos();
@@ -1771,27 +1968,52 @@
         }
 
         // ============================================================
-        //  PWA - INSTALAÇÃO
+        //  PWA - INSTALAÇÃO DO APP
         // ============================================================
 
         let deferredPrompt;
+
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             document.getElementById('installBanner').classList.add('show');
+            document.getElementById('installFooterBtn').style.display = 'flex';
+            console.log('📱 App pronto para instalação!');
         });
 
         document.getElementById('installBtn').addEventListener('click', async () => {
-            if (deferredPrompt) {
+            await instalarApp();
+        });
+
+        async function instalarApp() {
+            if (!deferredPrompt) {
+                if (navigator.userAgent.toLowerCase().includes('android')) {
+                    showNotification('📱 Instalação', 'Use o menu do Chrome: "Adicionar à tela inicial"', 'info', 5000);
+                } else if (navigator.userAgent.toLowerCase().includes('iphone') || navigator.userAgent.toLowerCase().includes('ipad')) {
+                    showNotification('📱 Instalação', 'Toque em Compartilhar → "Adicionar à Tela de Início"', 'info', 5000);
+                } else {
+                    showNotification('💻 Desktop', 'Use o menu do navegador para instalar o app', 'info', 4000);
+                }
+                return;
+            }
+
+            try {
                 deferredPrompt.prompt();
                 const result = await deferredPrompt.userChoice;
+                
                 if (result.outcome === 'accepted') {
                     document.getElementById('installBanner').classList.remove('show');
-                    showNotification('✅ App instalado!', 'Ndlelene está na sua tela inicial.', 'success');
+                    document.getElementById('installFooterBtn').style.display = 'none';
+                    showNotification('✅ App instalado!', 'Ndlelene está na sua tela inicial.', 'success', 5000);
+                    deferredPrompt = null;
+                } else {
+                    showNotification('ℹ️ Instalação cancelada', 'Você pode instalar depois pelo menu do navegador.', 'info', 4000);
                 }
-                deferredPrompt = null;
+            } catch (error) {
+                console.error('Erro na instalação:', error);
+                showNotification('❌ Erro', 'Não foi possível instalar o app.', 'error', 4000);
             }
-        });
+        }
 
         function fecharBanner() {
             document.getElementById('installBanner').classList.remove('show');
@@ -1799,11 +2021,19 @@
 
         window.addEventListener('appinstalled', () => {
             document.getElementById('installBanner').classList.remove('show');
+            document.getElementById('installFooterBtn').style.display = 'none';
+            showNotification('🎉 Bem-vindo!', 'Ndlelene está pronto para usar!', 'success', 5000);
         });
 
         // ============================================================
         //  INICIALIZAR
         // ============================================================
+
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            document.getElementById('installBanner').classList.remove('show');
+            document.getElementById('installFooterBtn').style.display = 'none';
+            console.log('📱 App rodando em modo standalone (instalado)');
+        }
 
         if (!localStorage.getItem('ndlelene_precos')) {
             setPrecos(PRECOS_PADRAO);
@@ -1813,6 +2043,9 @@
         console.log('📦 Dados salvos no LocalStorage');
         console.log('💰 Moeda: Metical Moçambicano (MT)');
         console.log('🔒 Senha Admin: 842650');
+        console.log('📍 Locais disponíveis: 15 bairros');
+        console.log('📱 PWA: App disponível para instalação');
+        console.log(`💲 Preço mínimo por viagem: ${PRECO_MINIMO} MT`);
     </script>
 
 </body>
